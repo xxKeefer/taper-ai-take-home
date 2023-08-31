@@ -1,27 +1,66 @@
-# React + TypeScript + Vite
+# Taper.ai Take Home
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*Deployed at <https://taper-ai-take-home.vercel.app/>*
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Find out how <https://jsonplaceholder.typicode.com/> REST API works and make a web page to display all photos in album id:1.
+1. Create a page with a form to submit new user to <https://jsonplaceholder.typicode.com/>.
+1. Write an unit test for task 2 to confirm the response from server when submit.
 
-## Expanding the ESLint configuration
+## How to run
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Install dependencies
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   npm install
+   ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+2. Run the app
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+     npm run dev
+   ```
+
+3. Run the test
+
+   ```bash
+     npm run test
+   ```
+
+### Technologies choices
+
+- React
+- Tailwind
+- daisyUI
+- Vite
+- Vitest
+- msw
+- react-query
+- react-hook-form
+- react-router-dom
+- gts (google's typescript style)
+
+### daisyUI
+
+simple ui components built on top of tailwind for a quick build
+
+### msw + vitest + testing-library <3
+
+very easy to test the api calls and the components and vitest is so quick
+
+### react-query
+
+industry standard for data fetching, mind you with react server components coming soon, this might be a thing of the past. We'll have to see i avoided anything more complex because of the size of the project
+
+### gts
+
+use someone elses config to keep my code tidy, this has just been released recently and i was keen to give it a go. can recommend very minimal config with sensible defaults
+
+### react-hook-form
+
+i prefer this over formik for ts projects,  i find it easier to use.
+
+### react-router-dom
+
+could've done a nextjs project but it seemed a bit over kill for this project.

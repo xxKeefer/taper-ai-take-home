@@ -34,7 +34,10 @@ const TaskOne = () => {
         <section>
           <div className="flex flex-wrap gap-2">
             {data?.map(photo => (
-              <div className="card card-side bg-base-100 shadow-xl invert shrink">
+              <div
+                key={photo.id}
+                className="card card-side bg-base-100 shadow-xl invert shrink"
+              >
                 <img
                   key={photo.id}
                   src={photo.thumbnailUrl}
