@@ -1,6 +1,6 @@
 import './index.css';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
 import NotFound from './NotFound';
 import TaskOne from './TaskOne';
@@ -21,7 +21,11 @@ const router = createBrowserRouter([
       {
         index: true,
         path: Routes.Home,
-        element: <div>use the menu to the left to navigate</div>,
+        element: (
+          <div className="px-5">
+            ⬆️ use this menu to the left to navigate the tasks
+          </div>
+        ),
       },
       {
         path: Routes.TaskOne,
@@ -35,12 +39,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.render(
   <React.StrictMode>
     <ToastProvider>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
     </ToastProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')!
 );
