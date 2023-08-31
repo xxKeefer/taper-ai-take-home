@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import NotFound from './NotFound';
 import TaskOne from './TaskOne';
+import TaskTwo from './TaskTwo';
 import {Routes} from './constants';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import ToastProvider from './ToastContext';
 
 const queryClient = new QueryClient();
 
@@ -18,13 +20,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        path: Routes.Home,
+        element: <div>use the menu to the left to navigate</div>,
+      },
+      {
         path: Routes.TaskOne,
         element: <TaskOne />,
       },
       {
-        index: true,
         path: Routes.TaskTwo,
-        element: <div>TASK TWO TODO</div>,
+        element: <TaskTwo />,
       },
     ],
   },
@@ -32,8 +37,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <ToastProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </ToastProvider>
   </React.StrictMode>
 );

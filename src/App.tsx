@@ -1,9 +1,11 @@
 import React from 'react';
 import {Outlet, useNavigate} from 'react-router-dom';
 import {Routes} from './constants';
+import {useToasts} from './ToastContext';
 
 function App() {
   const navigate = useNavigate();
+  const {toasts, removeToast} = useToasts();
   return (
     <>
       <div className="drawer">
@@ -37,6 +39,32 @@ function App() {
             </div>
           </div>
           <Outlet />
+          <div className="toast toast-bottom toast-end">
+            {toasts.map(toast => (
+              <div className={`alert alert-${toast.kind}`}>
+                <button
+                  onClick={() => removeToast(toast.id)}
+                  className="btn btn-circle btn-sm"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                <div className="flex items-center">{toast.message}</div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
