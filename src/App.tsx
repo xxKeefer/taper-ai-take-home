@@ -1,5 +1,6 @@
 import React from 'react';
 import {Outlet, useNavigate} from 'react-router-dom';
+import {Routes} from './constants';
 
 function App() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function App() {
             <div className="flex-1">
               <button
                 className="btn btn-ghost normal-case text-xl"
-                onClick={() => navigate('/')}
+                onClick={() => navigate(Routes.Home)}
               >
                 xxKeefer
               </button>
@@ -40,12 +41,11 @@ function App() {
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-            {/* Sidebar content here */}
             <li>
-              <button onClick={() => navigate('/task1')}>Task One</button>
+              <button onClick={() => navigate(Routes.TaskOne)}>Task One</button>
             </li>
             <li>
-              <button onClick={() => navigate('/task2')}>Task Two</button>
+              <button onClick={() => navigate(Routes.TaskTwo)}>Task Two</button>
             </li>
           </ul>
         </div>
